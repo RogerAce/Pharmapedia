@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qg)e(79c!sjwj0!qor9s%w*jzv8o1yt$@+gmpfgx5knes^iw%$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["pharmapedia.herokuapp.com"]
+ALLOWED_HOSTS = []#["pharmapedia.herokuapp.com"]
 
 
 # Application definition
