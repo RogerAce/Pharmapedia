@@ -1,8 +1,13 @@
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 import json
 import pandas as pd
 import re
 dataset = pd.read_csv("medapi/drug.csv", header=None)
+
+
+def index(request):
+    return HttpResponse("<h1>Hi This is Pharmapedia search url is 127.0.0.1:8000/medicine?search=Alferon<h1>\n Baseurl can be replace with internet url",content_type="text/html")
+    
 
 def search(request):
     q = request.GET.get("search")
