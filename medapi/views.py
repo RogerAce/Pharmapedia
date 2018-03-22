@@ -1,6 +1,5 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-import json
 import pandas as pd
 import re
 dataset = pd.read_csv("medapi/drug.csv", header=None)
@@ -35,7 +34,7 @@ def search(request):
             if (p.match(y[i])):
                 positive.append(i)
         print("GNAME FOUND")
-        return JsonResponse(json.dumps(returns(list(set(positive)), "G")), safe=False)
+        return JsonResponse(returns(list(set(positive)), "G"), safe=False)
 
 
 def returns(positive, N):
