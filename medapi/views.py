@@ -48,11 +48,11 @@ def returns(positive, N):
             USplit = UNIT.split(';')
             CSplit = CLASS.split(',')
             Infoset = []
-            for i in range(len(SSplit)):
+            for j in range(len(SSplit)):
                 try:
-                    Infoset.append([SSplit[i], QSplit[i] + " " + USplit[i], CSplit[i]])
-                except:
-                    print("data created")
+                    Infoset.append([SSplit[j], QSplit[j] + " " + USplit[j], CSplit[j]])
+                except Exception as ex:
+                    break
 
             Result.append([BNAME, GNAME, MODE, MANUFACTURER, PRICE, Infoset])
         MED["result"] =Result
