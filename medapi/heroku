@@ -1,0 +1,28 @@
+pharmapedia.herokuapp
+https://gearheart.io/blog/how-to-deploy-a-django-application-on-heroku/
+python manage.py 	loadstatics
+requirements.txt
+
+Procfile	web: gunicorn med.wsgi --log-file -
+runtime.txt python-3.6.1
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+# wsgi.py
+import os
+from django.core.wsgi import get_wsgi_application
+from whitenoise.django import DjangoWhiteNoise
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "heroku_blog.settings.production")
+
+application = get_wsgi_application()
+application = DjangoWhiteNoise(application)
