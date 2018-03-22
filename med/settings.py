@@ -55,7 +55,7 @@ ROOT_URLCONF = 'med.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["medapi/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,4 +125,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
     # Add to this list all the locations containing your static files 
+)
+site_media = os.path.join(
+    os.path.dirname(__file__),os.path.dirname(__file__)+"static/", "../", "medapi", "static", 'site_media'
 )

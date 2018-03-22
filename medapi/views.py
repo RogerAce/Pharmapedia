@@ -1,4 +1,5 @@
-from django.http import JsonResponse,HttpResponse
+from django.http import JsonResponse
+from django.shortcuts import render
 import json
 import pandas as pd
 import re
@@ -6,7 +7,7 @@ dataset = pd.read_csv("medapi/drug.csv", header=None)
 
 
 def index(request):
-    return HttpResponse("<h1>Hi This is Pharmapedia search url is pharmapedia.herokuapp.com/medicine?search=Alferon<h1>\n",content_type="text/html")
+       return render(request,"html/index.html")
     
 
 def search(request):
@@ -38,9 +39,8 @@ def search(request):
 
 
 def returns(positive, N):
-    MED = []
-    header = {"header": [len(positive), N]}
-    MED.append(header)
+    MED = {}
+    MED["header"] = [len(positive), N]
 
     if (len(positive)):
         Result = []
@@ -68,7 +68,7 @@ def returns(positive, N):
                     print("data created")
 
             Result.append([BNAME, GNAME, MODE, MANUFACTURER, PRICE, Infoset])
-        MED.append({"result": Result})
+        MED["result"] =Result
 
     else:
         print("No data found")
