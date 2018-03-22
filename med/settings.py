@@ -25,7 +25,7 @@ SECRET_KEY = 'qg)e(79c!sjwj0!qor9s%w*jzv8o1yt$@+gmpfgx5knes^iw%$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []#["pharmapedia.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -74,13 +74,13 @@ WSGI_APPLICATION = 'med.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-import dj_database_url
-
 DATABASES = {
-  'default': dj_database_url.config(
-      default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
-  )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -119,5 +119,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
