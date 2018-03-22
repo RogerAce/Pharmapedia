@@ -84,9 +84,7 @@ def nbfound(name):
         if (p.match(y[i])):
             positive.append(i)
     if (len(positive) < 10):
-        print("going in for gname")
         for i in range(length):
             if (p.match(g[i])):
                 positive.append(i)
-    print("possible Bname found")
-    returns(list(set(positive)), "G")
+    return returns(list(set(positive)), "G")
