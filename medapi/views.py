@@ -3,38 +3,26 @@ from django.shortcuts import render
 import pandas as pd
 import re
 dataset = pd.read_csv("medapi/drug.csv", header=None)
-
+#return JsonResponse(returns(list(set(positive)), "G"), safe=False)
 
 def index(request):
        return render(request,"html/index.html")
-    
+
+
+y = list(dataset.iloc[:, 1].values)
+g = list(dataset.iloc[:, 2].values)
+length = len(y);
+
+
 
 def search(request):
-    q = request.GET.get("search")
-    if not q:
-
-        return
+    name = request.GET['search']
+    name = " ".join(name.split()).title()
+    for i in range(length):
+        if (name == y[i]):
+            return JsonResponse(bfound(name, g[i], i), safe=False);
     else:
-        name = request.GET['search']  # "Alferon"  # \\
-
-    p = re.compile(name, re.IGNORECASE)
-    y = list(dataset.iloc[:, 1].values)
-
-    positive = []
-    for i in range(len(y)):
-        if (p.match(y[i])):
-            positive.append(i)
-    if (3 < len(positive)):
-        print("BNAME FOUND")
-        returns(positive, "B")
-
-    else:
-        y = list(dataset.iloc[:, 2].values)
-        for i in range(len(y)):
-            if (p.match(y[i])):
-                positive.append(i)
-        print("GNAME FOUND")
-        return JsonResponse(returns(list(set(positive)), "G"), safe=False)
+        return JsonResponse(nbfound(name), safe=False);
 
 
 def returns(positive, N):
@@ -72,3 +60,33 @@ def returns(positive, N):
     else:
         print("No data found")
     return MED
+
+
+def bfound(name, gname, ix):
+    positive = [ix]
+    salts = g[ix].split(",")
+    for i in range(length):
+        temp = g[i].split(',')
+        for j in temp:
+            if (j not in salts):
+                break
+        else:
+            positive.append(i)
+
+    return returns(list(set(positive)), "B")
+
+
+def nbfound(name):
+    positive = []
+    p = re.compile(name, re.IGNORECASE)
+
+    for i in range(length):
+        if (p.match(y[i])):
+            positive.append(i)
+    if (len(positive) < 10):
+        print("going in for gname")
+        for i in range(length):
+            if (p.match(g[i])):
+                positive.append(i)
+    print("possible Bname found")
+    returns(list(set(positive)), "G")
