@@ -22,6 +22,7 @@ from medapi import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^medicine',views.search),
+    url(r'^test/',views.store),
     url(r'^$',views.index),
 ]
 #urlpatterns =format_suffix_patterns(urlpatterns)
