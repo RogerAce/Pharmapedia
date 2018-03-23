@@ -24,7 +24,7 @@ def search(request):
         return JsonResponse(nbfound(name))#safe=False
 
 def store(request):
-    name=request.GET['']
+    return render(request, "html/text.html")
 
 
 
