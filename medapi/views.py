@@ -14,15 +14,23 @@ g = list(dataset.iloc[:, 2].values)
 length = len(y);
 
 
-
 def search(request):
     name = request.GET['search']
     name = " ".join(name.split()).title()
     for i in range(length):
         if (name == y[i]):
-            return JsonResponse(bfound(name, g[i], i), safe=False);
+            return JsonResponse(bfound(name, g[i], i))
     else:
-        return JsonResponse(nbfound(name), safe=False);
+        return JsonResponse(nbfound(name))#safe=False
+
+def store(request):
+    name=request.GET['']
+
+
+
+
+
+
 
 
 def returns(positive, N):
@@ -88,3 +96,5 @@ def nbfound(name):
             if (p.match(g[i])):
                 positive.append(i)
     return returns(list(set(positive)), "G")
+
+
