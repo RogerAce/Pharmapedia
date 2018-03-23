@@ -131,8 +131,8 @@ TEMPLATE_DIRS = (
 site_media = os.path.join(
     os.path.dirname(__file__),os.path.dirname(__file__)+"static/", "../", "medapi", "static", 'site_media'
 )
-CORS_ORIGIN_ALLOW_ALL = True
-"""CORS_ORIGIN_WHITELIST = (
+
+CORS_ORIGIN_WHITELIST = (
     'localhost:8000',
     '127.0.0.1:8000',
     'localhost:8080',
@@ -140,8 +140,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 )
 
 CORS_ORIGIN_REGEX_WHITELIST = (r'^127.0.0.1:[0-9]+$',r'^localhost:[0-9]+$' )
-"""
 
+#CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ALLOW_CREDENTIALS = False
 CORS_ALLOW_METHODS = (
     'GET',
 )
