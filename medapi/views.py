@@ -19,7 +19,7 @@ def search(request):
     name = " ".join(name.split()).title()
     for i in range(length):
         if (name == y[i]):
-           # Access - Control - Allow - Origin
+           #Access-Control-Allow-Origin
             respose=JsonResponse(bfound(name, g[i], i))
             respose["Access-Control-Allow-Origin"]="*"
             return respose
