@@ -23,6 +23,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^medicine',views.search),
     url(r'^store',views.store),
+    url(r'^manufacturer',views.manufacture),
+    url(r'^banned', views.banned),
+    url(r'^lic', views.Lic),
     url(r'^$',views.index),
+
 ]
 #urlpatterns =format_suffix_patterns(urlpatterns)
