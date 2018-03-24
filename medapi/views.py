@@ -1,10 +1,12 @@
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse;
 from django.shortcuts import render
 import pandas as pd
 import re
 
 dataset = pd.read_csv("medapi/drug.csv", header=None)
 dataset2 = pd.read_csv("medapi/Store.csv",header=None)
+dataset3 = pd.read_csv("medapi/manufacturer.csv", header=None)
+
 lenm=len(dataset)
 lens=len(dataset2)
 
@@ -67,9 +69,21 @@ def store(request):
     return respose
 
 
-
-
-
+def manufacture(request):
+    name =request.GET["mft"] #"Ethicon, Inc"  # "all" #
+    if name == "all":
+        Result = {"header": len(dataset3), "data": list(dataset3.iloc[:, 1].values)}
+    else:
+        for i in range(len(dataset3)):
+            if (name == dataset3.iloc[i, 1]):
+                break;
+        Result = []
+        for j in range(len(dataset3.iloc[i, 2])):
+            Result.append(y[j])
+        Result = {"header": len(dataset3.iloc[i, 2]), "data": Result}
+    respose = JsonResponse(Result) ; # safe=False
+    respose["Access-Control-Allow-Origin"] = "*"
+    return respose
 
 def returns(positive, N):
     MED = {}
