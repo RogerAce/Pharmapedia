@@ -85,6 +85,31 @@ def manufacture(request):
     respose["Access-Control-Allow-Origin"] = "*"
     return respose
 
+def banned(resquest):
+    file = open("medapi/Banded_Data")
+    data = file.readlines()
+    file.close()
+    for i in range(len(data)):
+        data[i] = data[i][:-1]
+    title = data[1:len(data)]
+    respose = JsonResponse({"title": data[0], "data": title})
+    respose["Access-Control-Allow-Origin"] = "*"
+    return respose
+
+
+def Lic(request):
+    no = request.GET["no"]
+    try:
+        z = list(dataset2.iloc[:, 2].values).index(int(no))
+        r= {"exist": "1", "email": dataset2.iloc[z, 5]}
+    except:
+        r={"exist": "0"}
+    respose = JsonResponse(r)
+    respose["Access-Control-Allow-Origin"] = "*"
+    return respose
+
+
+
 def returns(positive, N):
     MED = {}
     MED["header"] = [len(positive), N]
