@@ -35,7 +35,7 @@ def search(request):
 def store(request):
     name=request.GET["search"]
     ids=y.index(name)
-    lglt="28.961768,77.658631"#request.GET["lglt"]
+    lglt=request.GET["lglt"]
     lg,lt=lglt.split(',')
     D=[]
     index=[]
