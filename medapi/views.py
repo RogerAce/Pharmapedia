@@ -2,8 +2,11 @@ from django.http import JsonResponse
 from django.shortcuts import render
 import pandas as pd
 import re
+
 dataset = pd.read_csv("medapi/drug.csv", header=None)
-#return JsonResponse(returns(list(set(positive)), "G"), safe=False)
+dataset2 = pd.read_csv("medapi/store.csv",header=None)
+lenm=len(dataset)
+lens=len(dataset2)
 
 def index(request):
        return render(request,"html/index.html")
@@ -19,17 +22,49 @@ def search(request):
     name = " ".join(name.split()).title()
     for i in range(length):
         if (name == y[i]):
-           # Access - Control - Allow - Origin
+           #Access-Control-Allow-Origin
             respose=JsonResponse(bfound(name, g[i], i))
             respose["Access-Control-Allow-Origin"]="*"
             return respose
     else:
-        return JsonResponse(nbfound(name))#safe=False
+        respose = JsonResponse(nbfound(name))#safe=False
+        respose["Access-Control-Allow-Origin"]="*"
+        return respose
+
 
 def store(request):
-    return render(request, "html/text.html")
-
-
+    name=request.GET["search"]
+    ids=y.index(name)
+    lglt=request.GET["lglt"]
+    lg,lt=lglt.split(',')
+    D=[]
+    index=[]
+    for i in range(lens):
+        if(str(ids) in dataset2.iloc[i,8]):
+            lgs,lts =dataset2.iloc[i,7].split(',')
+            D.append(abs(complex( float(lg)-float(lts),float(lt)-float(lts) )))
+            index.append(i)
+    mins=[]
+    if(len(D)<5):
+        m=len(D)
+    else:
+        m=5
+    for i in range(m):
+        smalli=D.index(min(D))
+        mins.append(index[smalli])
+        del D[smalli]
+        del index[smalli]
+    data=[]
+    for i in mins:
+        name={"name":dataset2.iloc[i,1]}
+        cord={"coord":dataset2.iloc[i,7]}
+        add={"add":dataset2.iloc[i,3]}
+        phone={"phone":str(dataset2.iloc[i,4])}
+        email={"email":dataset2.iloc[i,5]}
+        data.append([name,cord,add,phone,email])
+    respose = JsonResponse({"header":m,"result":data})  # safe=False
+    respose["Access-Control-Allow-Origin"] = "*"
+    return respose
 
 
 
