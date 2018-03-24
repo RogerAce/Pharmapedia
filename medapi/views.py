@@ -4,7 +4,7 @@ import pandas as pd
 import re
 
 dataset = pd.read_csv("medapi/drug.csv", header=None)
-dataset2 = pd.read_csv("medapi/store.csv",header=None)
+dataset2 = pd.read_csv("medapi/Store.csv",header=None)
 lenm=len(dataset)
 lens=len(dataset2)
 
