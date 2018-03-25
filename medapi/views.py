@@ -35,38 +35,48 @@ def search(request):
 
 
 def store(request):
-    name=request.GET["search"]
-    ids=y.index(name)
-    lglt=request.GET["lglt"]
-    lg,lt=lglt.split(',')
-    D=[]
-    index=[]
-    for i in range(lens):
-        if(str(ids) in dataset2.iloc[i,8]):
-            lgs,lts =dataset2.iloc[i,7].split(',')
-            D.append(abs(complex( float(lg)-float(lts),float(lt)-float(lts) )))
-            index.append(i)
-    mins=[]
-    if(len(D)<5):
-        m=len(D)
+    name = request.GET["search"]
+    ids = y.index(name)
+    lglt = request.GET["lglt"]
+    origin = lg, lt = lglt.split(',')
+    D = []
+    index = []
+    gcords = []
+    for i in range(lens):  # size of dataset
+        if (str(ids) in dataset2.iloc[i, 8]):  # check for meds associated with ith store
+            lgs, lts = dataset2.iloc[i, 7].split(',')  # get co-ordinate of ith store
+            w1, w2 = 149.9913914007, 111.321543
+            k = abs(complex((float(lg) - float(lgs)) * w1, (float(lt) - float(lts)) * w2))
+            if (k <= 8):
+                D.append(k)  # append distance from store to customer
+                index.append(i)  # index of ith store
+    mins = []
+    if (len(D) < 5):
+        m = len(D)
     else:
-        m=5
+        m = 5
     for i in range(m):
-        smalli=D.index(min(D))
+        smalli = D.index(min(D))  # get the min element and index of dataset2
         mins.append(index[smalli])
+        gcords.append(dataset2.iloc[index[smalli], 7])
         del D[smalli]
         del index[smalli]
-    data=[]
+    Gdata = originf(origin, gcords)
+    data = []
+    k = 0
     for i in mins:
-        name={"name":dataset2.iloc[i,1]}
-        cord={"coord":dataset2.iloc[i,7]}
-        add={"add":dataset2.iloc[i,3]}
-        phone={"phone":str(dataset2.iloc[i,4])}
-        email={"email":dataset2.iloc[i,5]}
-        data.append([name,cord,add,phone,email])
+        name = {"name": dataset2.iloc[i, 1]}
+        add = {"add": Gdata[k][0]}
+        phone = {"phone": str(dataset2.iloc[i, 4])}
+        email = {"email": dataset2.iloc[i, 5]}
+        distance = {"distance": Gdata[k][1]}
+        time = {"time": Gdata[k][2]}
+        k = k + 1
+        data.append([name, add, phone, email, distance, time])
     respose = JsonResponse({"header":m,"result":data})  # safe=False
     respose["Access-Control-Allow-Origin"] = "*"
     return respose
+
 
 
 def manufacture(request):
@@ -175,3 +185,18 @@ def nbfound(name):
     return returns(list(set(positive)), "G")
 
 
+def originf(origin,des):
+    Gdata=[]
+    origin=str(origin[0])+","+str(origin[1])
+    z=""
+    for i in des:
+        z=z+i+'|'
+    z=z[:-1]
+    url="https://maps.googleapis.com/maps/api/distancematrix/json?origins="+origin+"&destinations="+z+"&units=metric&key=AIzaSyBTXSwjuSCwoKTLG0DwI3RhGDAWDQLKENw"
+    import json
+    import requests
+    response = requests.get(url)
+    l= json.loads(response.content)
+    for i in range(len(l['destination_addresses'])):
+         Gdata.append([l['destination_addresses'][i],l['rows'][0]['elements'][i]["distance"]["value"],l['rows'][0]['elements'][0]["duration"]["text"]])
+    return Gdata
