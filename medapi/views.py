@@ -71,8 +71,9 @@ def store(request):
         email = {"email": dataset2.iloc[i, 5]}
         distance = {"distance": Gdata[k][1]}
         time = {"time": Gdata[k][2]}
+        cord={"coord":dataset2.iloc[i,7]}
         k = k + 1
-        data.append([name, add, phone, email, distance, time])
+        data.append([name, add, phone, email, distance, time, cord])
     respose = JsonResponse({"header":m,"result":data})  # safe=False
     respose["Access-Control-Allow-Origin"] = "*"
     return respose
