@@ -22,10 +22,11 @@ from medapi import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^medicine',views.search),
-    url(r'^store',views.store),
+    url(r'^store$',views.store),
     url(r'^manufacturer',views.manufacture),
     url(r'^banned', views.banned),
     url(r'^lic', views.Lic),
+    url(r'^store_med', views.store_med),
     url(r'^$',views.index),
 
 ]
