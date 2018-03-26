@@ -2,6 +2,8 @@ from django.http import JsonResponse,HttpResponse;
 from django.shortcuts import render
 import pandas as pd
 import re
+import json
+import requests
 
 dataset = pd.read_csv("medapi/drug.csv", header=None)
 dataset2 = pd.read_csv("medapi/Store.csv",header=None)
@@ -9,15 +11,12 @@ dataset3 = pd.read_csv("medapi/manufacturer.csv", header=None)
 
 lenm=len(dataset)
 lens=len(dataset2)
-
-def index(request):
-       return render(request,"html/index.html")
-
-
 y = list(dataset.iloc[:, 1].values)
 g = list(dataset.iloc[:, 2].values)
 length = len(y);
 
+def index(request):
+       return render(request,"html/index.html")
 
 def search(request):
     name = request.GET['search']
@@ -120,6 +119,40 @@ def Lic(request):
     return respose
 
 
+def store_med(request):
+    lic = request.GET["lic"]
+    lict = list(dataset2.iloc[:, 2].values)
+    idx = lict.index(int(lic))
+    z = json.loads(dataset2.iloc[idx, 8])  # dataset2.iloc[idx,8]#
+    Result = []
+    for i in z:
+        BNAME = dataset.iloc[i, 1]
+        GNAME = dataset.iloc[i, 2]
+        MODE = dataset.iloc[i, 3]
+        MANUFACTURER = dataset.iloc[i, 4]
+        PRICE = str(dataset.iloc[i, 9])
+        SALTS = dataset.iloc[i, 5]
+        QUANTITY = str(dataset.iloc[i, 6])
+        UNIT = dataset.iloc[i, 7]
+        CLASS = dataset.iloc[i, 8]
+
+        SSplit = SALTS.split(';')
+        QSplit = QUANTITY.split(';')
+        USplit = UNIT.split(';')
+        CSplit = CLASS.split(',')
+        Infoset = []
+        for j in range(len(SSplit)):
+            try:
+                Infoset.append([SSplit[j], QSplit[j] + " " + USplit[j], CSplit[j]])
+            except:
+                break
+        Result.append([BNAME, GNAME, MODE, MANUFACTURER, PRICE, Infoset])
+
+    respose = JsonResponse({"header": len(Result), "result": Result})
+    respose["Access-Control-Allow-Origin"] = "*"
+    return respose
+
+
 
 def returns(positive, N):
     MED = {}
@@ -194,8 +227,6 @@ def originf(origin,des):
         z=z+i+'|'
     z=z[:-1]
     url="https://maps.googleapis.com/maps/api/distancematrix/json?origins="+origin+"&destinations="+z+"&units=metric&key=AIzaSyBTXSwjuSCwoKTLG0DwI3RhGDAWDQLKENw"
-    import json
-    import requests
     response = requests.get(url)
     l= json.loads(response.content)
     for i in range(len(l['destination_addresses'])):
