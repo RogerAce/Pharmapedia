@@ -212,9 +212,12 @@ def nbfound(name):
     for i in range(length):
         if (p.match(y[i])):
             positive.append(i)
-    if (len(positive) < 10):
+    if (len(positive) < 3):
         for i in range(length):
             if (p.match(g[i])):
+                positive.append(i)
+        for i in range(length):
+            if (name in g[i] or  name in y[i]):
                 positive.append(i)
     return returns(list(set(positive)), "G")
 
