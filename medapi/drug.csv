@@ -1845,3 +1845,51 @@
 1845,Cherry Bing,Cherry Bing,"INJECTION, SOLUTION","Nelco Laboratories, Inc.",SOUR CHERRY,0.05,g/mL,"Non-Standardized Plant Allergenic Extract [EPC],Non-Standardized Food Allergenic Extract [EPC],Increased Histamine Release [PE],Cell-mediated Immunity",224
 1846,Artichoke,Artichoke,"INJECTION, SOLUTION","Nelco Laboratories, Inc.",ARTICHOKE,0.05,g/mL,"Non-Standardized Plant Allergenic Extract [EPC],Non-Standardized Food Allergenic Extract [EPC],Increased Histamine Release [PE],Cell-mediated Immunity",358
 1847,Red Kidney Beans,Red Kidney Beans,"INJECTION, SOLUTION","Nelco Laboratories, Inc.",KIDNEY BEAN,0.05,g/mL,"Non-Standardized Plant Allergenic Extract [EPC],Non-Standardized Food Allergenic Extract [EPC],Increased Histamine Release [PE],Cell-mediated Immunity",374
+1848,Anucort-HC,hydrocortisone,External,McKesson,"Hydrocortisone Acetate,zinc oxide",   ,   ,Tropical steroids,4920
+1849,Anusol-HC,hydrocortisone,External,Sun Pharmaceutical Industries,Hydrocortisone sodium succinate,   ,   ,Tropical steroids,3500
+1850,Solarcaine aloe extra,Lidocaine,External,Neon Laboratories,"saccharin sodium,methylparaben,sodium hydroxide",   ,   ,Tropical steroids,30.7
+1851,Peridex,chlorhexidine gluconate,oral,Colgate Oral Pharmaceuticals,chlorhexidine,   ,   ,Chlorhexidine Gluconate topical (AHFS Monograph),679.8
+1852,Betadine Spray,Povidone-Iodine,Extenal,Purdue Products L.P.,Povidone-iodine 5%; aerosol,   ,   ,Antiseptic and germicides,1158
+1853,Anasept Cleanser,sodium hypochlorite,Extenal,Dakin's ,Sodium Hypochlorite,   ,   ,Antiseptic and germicides,3600
+1854,Exalgo,hydromorphone,capsule,Mundipharma Pharmaceuticals Limited,Hydromorphone HCl,   ,   ,Narcotic analgesics,2990
+1855,Micrainin,meprobamate and aspirin,oral,wallace laboratories,"carbamoyloxymethyl,methylpentyl,carbamate",   ,   ,Analgesic combinations,500
+1856,"Apagesic, Dolorex",acetaminophen and phenyltoloxamine,oral,Prestige brands,"Acetaminophen, Diphenhydramine HCl",   ,   ,Analgesic combinations,5175
+1857,Decongestant 12Hour Max St,Pseudoephedrine,oral,McNeil Consumer Healthcare,Pseudoephedrine HCl 120 mg,   ,   ,Decongestants,720
+1858,"Chlor Trimeton Nasal Decongestant,",pseudoephedrine,oral,Acura Pharmaceuticals,Nasofed hydrochloride and Nasofed sulfate,   ,   ,Decongestants,290
+1859,Neo-Synephrine,Phenylephrine Injection,oral,Bayer healthcare,Phenylephrine hydrochloride 0.5%,   ,   ,Decongestants,1347
+1860,"Alka-Seltzer Plus Cold, Comtrex Severe Cold & Sinus, Contac Cold+Flu Maximum Strength, Dristan Cold Multi Symptom Formula, Robitussin Nighttime Nasal Relief, Tylenol Allergy Multi-Symptom, Tylenol Children's Plus Cold, Tylenol Sinus Congestion Nighttime","acetaminophen, chlorpheniramine","oral tablet, liquid",Reckitt Benckiser Pharmaceuticals Inc.,"dextromethorphan,guaifenesin,expectorant",   ,   ,Upper respiratory combinations,680
+1861,ThyroShield,potassium iodide,oral,Taipei Intelliegent Machinery,"Potassium Iodide Tablets USP, 130 mg",   ,   ,Expectorants,2259
+1862,Organidin NR,Guaifenesin,oral,Reckitt Benckiser Inc.,Methoxyphenyl glyceryl ether ,   ,   ,Expectorants,240
+1863,Onmel,itraconazole,oral,"Janssen Pharmaceuticals, Inc.",itraconazole,   ,   ,Anti-fungal drugs,1200
+1864,Cresemba,isavuconazonium,oral,"Astellas Pharma US, Inc.",chloride and sulfate,   ,   ,Anti-fungal drugs,1176
+1865,LamISIL,terbinafine,oral,Novartis Consumer Health,hydrochloride salt,   ,   ,Anti-fungal drugs,227
+1866,Benadryl Allergy,diphenhydramine,oral,Johnson & Johnson Ltd,Diphenhydramine Ammonium Chloride Sodium Citrate,   ,   ,Anti-Histamines,720
+1867,Atarax,hydroxyzine,oral,Dr Reddy's Laboratories Ltd,Hydroxyzine hydrochloride 1-(p-chlorobenzhydryl) 4-[2-(2-hydroxyethoxy)-ethyl] piperazine dihydrochloride.,   ,   ,Antihistamines,2400
+1868,"Allermax, Banophen",diphenhydramine,oral,Prestige Brands,promethazine,   ,   ,Anticholinergic antiemetics,568
+1869,Nitrolingual,nitroglycerin,oral spray,Pfizer Inc.,"nitroglycerin,lactose monohydrate,calcium stearate",   ,   ,Antianginal agents,4200
+1870,Caverject Impulse,alprostadil,injection,Pfizer Inc.,alprostadil,   ,   ,Vasodilators,37560
+1871,"Caverject Impulse, (Muse)",alprostadil,Injection,Meda Pharmaceuticals Inc.,alprostadil,   ,   ,Impotence agents,22712
+1872,Diphenylhydramine,diphenhydramine,oral,Johnson & Johnson Ltd,"Candelilla wax,crospovidone,titanium dioxide,starch",   ,   ,cough-suppressant,60
+1873,Tessalon,benzonatate,oral,Pfizer Inc.,butylamino-benzoate,   ,   ,Antitussives,720
+1874,"Babee Cof, Benylin DM Pediatric",dextromethorphan,oral,Reckitt Benckiser Pharmaceuticals Inc.,dextromethorphan hydrobromide,   ,   ,Antitussives,102
+1875,"Aplenzin, Buproban,",bupropion,oral,"Teva Pharmaceuticals USA, Inc.",hydrochloride salt,   ,   ,Smoking cessation agents,2254.8
+1876,Nicotrol Inhaler,nicotine,oral,Pfizer Inc.,Nicotine,   ,   ,Smoking cessation agents,180
+1877,Chantix,varenicline,oral,Pfizer Inc.,Varenicline,   ,   ,Smoking cessation agents,4674
+1878,Disprin,aspirin,oral,Reckitt Benckiser ,Acetylsalicyclic acid ,   ,   ,Antiplatelet agents ,11
+1879,Babtmol,Paracetamol,oral,Laborate Pharmaceuticals India ,"Paracetamol,leflunomide,prilocaine",   ,   ,Antiplatelet agents ,40
+1880,Anglopar 500 MG,Paracetamol,oral,Anglo-French Drugs & Industries Ltd,"Paracetamol,leflunomide",   ,   ,Antiplatelet agents ,2.86
+1881,Altabax,retapamulin topical,External,GlaxoSmithKline Aqua Pharmaceuticals LLC,pleuromutilin derivatives,   ,   ,Topical antibiotics,16798
+1882,"Silvadene, SSD, Thermazene",silver sulfadiazine,External,Pfizer Inc.,"stearyl alcohol, isopropyl myristate, sorbitan monooleate, polyoxyl 40 stearate, propylene glycol",   ,   ,Topical antibiotics,600
+1883,"Avar, BP 10-Wash, Clarifoam EF,",sulfacetamide sodium,oral,"Medimetriks Pharmaceuticals, Inc.",Sodium sulfacetamide,   ,   ,Topical antibiotics,4679
+1884,Mylanta,simethicone,oral,infirst health care,aluminum-hydroxide- magnesium-hydroxide-simethicone,   ,   ,Miscellaneous GI agents,568
+1885,"Genasyme, Mylicon",Simethicone Suspension,oral,Imogas,simethicone,   ,   ,Miscellaneous GI agents,590
+1886,"Gelusil, Mintox Plus","Aluminum Hydroxide, Magnesium Hydroxide",oral,Major Pharmaceuticals,Aluminum-hydroxide- magnesium-hydroxide-simethicone,   ,   ,anti-gas agent,1282
+1887,Gasofast ,Antacid,Oral,Mankind Pharma ,"sodium bicarbonate (impure),systemic alkalinizing agent",   ,   ,Antaacids,6
+1888,Digene,Antacid,Oral,Abbott,"Magnesium Aluminium silicate,Dried Aluminium Hydoxide,Mangesium hydroxide",   ,   ,Antaacids,14
+1889,Eno,Antacid,Oral,GlaxoSmithKline,"citric acid,sodium bicarbonate",   ,   ,Antaacids,90
+1890,D acne,Clindamycin topical,External,Glenmark pharma,Clindamycin topical-1%W/W,   ,   ,Antiacne,300
+1891,Acnex,salicylic acid,oral,Unichem Laboratories limited,Isotretinoin,   ,   ,tropical acne agents,146
+1892,BenzEFoam Ultra,bezoyl peroxide,External,Valeant pharmaceuticals,"benzoyl peroxide,citric acid,disodium edta,glycerin",   ,   ,Antiacne,15480
+1893,Fenortho,Fenoprofen,oral,pedinol pharmacal inc.,"gelatin,ferric oxide yellow,magnesium silicate,crospovidone",   ,   ,Nonsteroidal anti-inflammatory drugs,26220
+1894,Clinoril,sulindac,oral,"merck & co.,inc.","cellulose,magnesium stearate,starch",   ,   ,Nonsteroidal anti-inflammatory drugs,102
+1895,Vimovo,esomeprazole and naproxen,oral,Aralez Pharmaceuticals Inc.,Naproxen and Esomeprazole Magnesium,   ,   ,Nonsteroidal anti-inflammatory drugs,8280
